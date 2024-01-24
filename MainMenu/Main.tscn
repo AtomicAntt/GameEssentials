@@ -47,19 +47,25 @@ margin_right = 383.0
 margin_bottom = 80.0
 text = "Quit"
 
-[node name="World" type="Node2D" parent="."]
-
 [node name="SFX" type="Node" parent="."]
 
 [node name="MouseHoverSound" type="AudioStreamPlayer" parent="SFX"]
+bus = "SFX"
 
 [node name="ClickPlaySound" type="AudioStreamPlayer" parent="SFX"]
+bus = "SFX"
 
 [node name="QuitSound" type="AudioStreamPlayer" parent="SFX"]
+bus = "SFX"
 
 [node name="ClickSettingsSound" type="AudioStreamPlayer" parent="SFX"]
+bus = "SFX"
+
+[node name="World" type="Node2D" parent="."]
 
 [connection signal="mouse_entered" from="MainMenu/MenuButtons/StartButton" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="MainMenu/MenuButtons/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="mouse_entered" from="MainMenu/MenuButtons/SettingsButton" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="MainMenu/MenuButtons/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="mouse_entered" from="MainMenu/MenuButtons/QuitButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="MainMenu/MenuButtons/QuitButton" to="." method="_on_QuitButton_pressed"]
