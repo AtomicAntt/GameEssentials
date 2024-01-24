@@ -1,0 +1,9 @@
+C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\bin\Debug\GameEssentials.dll
+C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\bin\Debug\GameEssentials.pdb
+C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\obj\Debug\GameEssentials.csproj.AssemblyReference.cache
+C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\obj\Debug\GameEssentials.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\obj\Debug\GameEssentials.AssemblyInfoInputs.cache
+C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\obj\Debug\GameEssentials.AssemblyInfo.cs
+C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\obj\Debug\GameEssentials.csproj.CoreCompileInputs.cache
+C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\obj\Debug\GameEssentials.dll
+C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\obj\Debug\GameEssentials.pdb
