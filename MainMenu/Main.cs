@@ -4,20 +4,27 @@ using System;
 public class Main : Node
 {
     // Initialized audio node variables ----------
+
+    // SFX
     public AudioStreamPlayer mouseHoverSound;
     public AudioStreamPlayer clickPlaySound;
     public AudioStreamPlayer quitSound;
     public AudioStreamPlayer clickSettingsSound;
 
+    // Music
+    public AudioStreamPlayer mainMenuMusic;
+    public AudioStreamPlayer inGameMusic;
+
 
     public override void _Ready()
     {
         // Initialize all child node references ----------
-
-        mouseHoverSound = GetNode<AudioStreamPlayer>("SFX/MouseHover");
+        mouseHoverSound = GetNode<AudioStreamPlayer>("SFX/MouseHoverSound");
         clickPlaySound = GetNode<AudioStreamPlayer>("SFX/ClickPlaySound");
         quitSound = GetNode<AudioStreamPlayer>("SFX/QuitSound");
         clickSettingsSound = GetNode<AudioStreamPlayer>("SFX/ClickSettingsSound");
+
+        mainMenuMusic = GetNode<AudioStreamPlayer>("Music/")
     }
 
     // SIGNALS ----------
@@ -46,8 +53,4 @@ public class Main : Node
     {
         clickSettingsSound.Play();
     }
-
-    
-
-
 }

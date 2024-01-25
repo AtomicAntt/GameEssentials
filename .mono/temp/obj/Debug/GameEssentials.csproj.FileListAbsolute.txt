@@ -7,3 +7,4 @@ C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\obj\Debug\GameEssentials.Assemb
 C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\obj\Debug\GameEssentials.csproj.CoreCompileInputs.cache
 C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\obj\Debug\GameEssentials.dll
 C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\obj\Debug\GameEssentials.pdb
+C:\Users\Mikki\Desktop\GameEssentials\.mono\temp\obj\Debug\GameEssentials.sourcelink.json
