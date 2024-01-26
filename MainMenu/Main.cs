@@ -3,7 +3,7 @@ using System;
 
 public class Main : Node
 {
-    // Initialized audio node variables ----------
+    // ---------- Initialized audio node variables ----------
 
     // SFX
     public AudioStreamPlayer mouseHoverSound;
@@ -15,15 +15,16 @@ public class Main : Node
     public AudioStreamPlayer mainMenuMusic;
     public AudioStreamPlayer inGameMusic;
 
-    // Variables for loading/unloading the game levels ----------
+    // ---------- Variables for loading/unloading the game levels ----------
 
-    // Levels is an initialized child node
-    private Node2D _levels;
+    private Node2D _levels; // Initialized child node
 
-    // Level instance is the current Node2D scene that will be under the levels node right above, which should contain the level
-    private Node2D _levelInstance;
+    private Node2D _levelInstance; // Current Node2D scene that will be under _levels
 
-    // Initialize all child node references ----------
+    // ----------- Initialized menu references that may need to be shown or hidden ----------
+    private Control _mainMenu;
+
+    // ----------- Initialize all child node references ----------
     public override void _Ready()
     {
         mouseHoverSound = GetNode<AudioStreamPlayer>("SFX/MouseHoverSound");
@@ -35,9 +36,11 @@ public class Main : Node
         inGameMusic = GetNode<AudioStreamPlayer>("Music/InGameMusic");
 
         _levels = GetNode<Node2D>("Levels");
+
+        _mainMenu = GetNode<Control>("MainMenu");
     }
 
-    // Methods to handle loading and unloading levels ----------
+    // ---------- Methods to handle loading and unloading levels ----------
 
     public void UnloadLevel()
     {
@@ -49,7 +52,9 @@ public class Main : Node
 
     public void LoadLevel(String levelName)
     {
+        // First, remove menus and any current levels that are running
         UnloadLevel();
+        _mainMenu.Visible = false;
 
         // This assumes that the level scene is in a folder called 'Levels' that is under res://
         String levelPath = "res://Levels/" + levelName + ".tscn";
@@ -62,9 +67,7 @@ public class Main : Node
         }
     }
 
-    // SIGNAL METHODS ----------
-
-    // BUTTON SIGNALS =========
+    // ---------- BUTTON SIGNAL METHODS ----------
 
     // Signal used on all menu buttons to indicate that the mouse is hovering over a button by playing a sound.
     public void _on_Button_mouse_entered()
@@ -74,6 +77,8 @@ public class Main : Node
 
     public void _on_StartButton_pressed()
     {
+        // Make sure you have 'Levels' folder with a valid Node2D Level1.tscn file in it first.
+        // LoadLevel("Level1");
         clickPlaySound.Play();
     }
 

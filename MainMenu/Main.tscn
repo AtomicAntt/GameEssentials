@@ -67,7 +67,7 @@ bus = "SFX"
 
 [node name="InGameMusic" type="AudioStreamPlayer" parent="Music"]
 
-[node name="World" type="Node2D" parent="."]
+[node name="Levels" type="Node2D" parent="."]
 
 [connection signal="mouse_entered" from="MainMenu/MenuButtons/StartButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="MainMenu/MenuButtons/StartButton" to="." method="_on_StartButton_pressed"]

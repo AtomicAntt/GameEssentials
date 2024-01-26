@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GameEssentials")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56ad944b13fe4fc46283c19928d5f8776d860710")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c40c7d3b6e92773c2d870e51d09a49499a3601d4")]
 [assembly: System.Reflection.AssemblyProductAttribute("GameEssentials")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GameEssentials")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
