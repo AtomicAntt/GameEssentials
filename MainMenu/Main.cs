@@ -22,7 +22,9 @@ public class Main : Node
     private Node2D _levelInstance; // Current Node2D scene that will be under _levels
 
     // ----------- Initialized menu references that may need to be shown or hidden ----------
+
     private Control _mainMenu;
+    private Control _settings;
 
     // ----------- Initialize all child node references ----------
     public override void _Ready()
@@ -38,6 +40,7 @@ public class Main : Node
         _levels = GetNode<Node2D>("Levels");
 
         _mainMenu = GetNode<Control>("MainMenu");
+        _settings = GetNode<Control>("Settings");
     }
 
     // ---------- Methods to handle loading and unloading levels ----------
@@ -91,6 +94,17 @@ public class Main : Node
 
     public void _on_SettingsButton_pressed()
     {
+        _mainMenu.Visible = false;
+        _settings.Visible = true;
+        
         clickSettingsSound.Play();
+    }
+
+    public void _on_SettingsBackButton_pressed()
+    {
+        _mainMenu.Visible = true;
+        _settings.Visible = false;
+
+        quitSound.Play();
     }
 }

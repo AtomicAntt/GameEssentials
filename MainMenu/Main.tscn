@@ -47,6 +47,28 @@ margin_right = 383.0
 margin_bottom = 80.0
 text = "Quit"
 
+[node name="Settings" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="SettingsBackground" type="ColorRect" parent="Settings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.301961, 0.243137, 0.243137, 1 )
+
+[node name="SettingsBackButton" type="Button" parent="Settings"]
+anchor_left = 0.0119792
+anchor_top = 0.958333
+anchor_right = 0.141667
+anchor_bottom = 0.980556
+margin_top = -20.0
+margin_right = 12.0
+text = "BACK"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="SFX" type="Node" parent="."]
 
 [node name="MouseHoverSound" type="AudioStreamPlayer" parent="SFX"]
@@ -75,3 +97,5 @@ bus = "SFX"
 [connection signal="pressed" from="MainMenu/MenuButtons/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="mouse_entered" from="MainMenu/MenuButtons/QuitButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="MainMenu/MenuButtons/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="mouse_entered" from="Settings/SettingsBackButton" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Settings/SettingsBackButton" to="." method="_on_SettingsBackButton_pressed"]
