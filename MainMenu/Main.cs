@@ -107,4 +107,13 @@ public class Main : Node
 
         quitSound.Play();
     }
+
+    // ---------- VOLUME SLIDER SIGNAL METHODS ----------
+
+    // Untested code, be sure to later account for saving the game
+    public void _on_VolumeSlider_value_changed(float value, String audioBusName)
+    {
+        int busIndex = AudioServer.GetBusIndex(audioBusName);
+        AudioServer.SetBusVolumeDb(busIndex, GD.Linear2Db(value));
+    }
 }
