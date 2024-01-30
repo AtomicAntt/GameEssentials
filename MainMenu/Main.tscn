@@ -102,7 +102,7 @@ margin_right = 138.0
 margin_bottom = 52.0
 text = "Background Music"
 
-[node name="VolumeSlider" type="HSlider" parent="Settings/SettingsContainer"]
+[node name="MusicSlider" type="HSlider" parent="Settings/SettingsContainer"]
 margin_top = 56.0
 margin_right = 138.0
 margin_bottom = 72.0
@@ -110,13 +110,13 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="SoundVolume" type="Label" parent="Settings/SettingsContainer"]
+[node name="SoundEffectsVolume" type="Label" parent="Settings/SettingsContainer"]
 margin_top = 76.0
 margin_right = 138.0
 margin_bottom = 90.0
 text = "Sound Effects"
 
-[node name="SoundSlider" type="HSlider" parent="Settings/SettingsContainer"]
+[node name="EffectsSlider" type="HSlider" parent="Settings/SettingsContainer"]
 margin_top = 94.0
 margin_right = 138.0
 margin_bottom = 110.0
@@ -160,3 +160,5 @@ bus = "BGM"
 [connection signal="mouse_entered" from="Settings/SettingsBackButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Settings/SettingsBackButton" to="." method="_on_SettingsBackButton_pressed"]
 [connection signal="value_changed" from="Settings/SettingsContainer/MasterSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "Master" ]]
+[connection signal="value_changed" from="Settings/SettingsContainer/MusicSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "BGM" ]]
+[connection signal="value_changed" from="Settings/SettingsContainer/EffectsSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "SFX" ]]
