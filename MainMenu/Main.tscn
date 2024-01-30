@@ -88,13 +88,13 @@ margin_right = 138.0
 margin_bottom = 14.0
 text = "Master"
 
-[node name="MasterSlider" type="HSlider" parent="Settings/SettingsContainer"]
+[node name="MasterSlider" type="HSlider" parent="Settings/SettingsContainer" groups=["Master", "VolumeSlider"]]
 margin_top = 18.0
 margin_right = 138.0
 margin_bottom = 34.0
 max_value = 1.0
 step = 0.05
-value = 1.0
+value = 0.5
 
 [node name="MusicVolume" type="Label" parent="Settings/SettingsContainer"]
 margin_top = 38.0
@@ -102,13 +102,13 @@ margin_right = 138.0
 margin_bottom = 52.0
 text = "Background Music"
 
-[node name="MusicSlider" type="HSlider" parent="Settings/SettingsContainer"]
+[node name="MusicSlider" type="HSlider" parent="Settings/SettingsContainer" groups=["BGM", "VolumeSlider"]]
 margin_top = 56.0
 margin_right = 138.0
 margin_bottom = 72.0
 max_value = 1.0
 step = 0.05
-value = 1.0
+value = 0.5
 
 [node name="SoundEffectsVolume" type="Label" parent="Settings/SettingsContainer"]
 margin_top = 76.0
@@ -116,13 +116,13 @@ margin_right = 138.0
 margin_bottom = 90.0
 text = "Sound Effects"
 
-[node name="EffectsSlider" type="HSlider" parent="Settings/SettingsContainer"]
+[node name="EffectsSlider" type="HSlider" parent="Settings/SettingsContainer" groups=["SFX", "VolumeSlider"]]
 margin_top = 94.0
 margin_right = 138.0
 margin_bottom = 110.0
 max_value = 1.0
 step = 0.05
-value = 1.0
+value = 0.5
 
 [node name="SFX" type="Node" parent="."]
 
