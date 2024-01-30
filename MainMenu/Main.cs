@@ -26,6 +26,12 @@ public class Main : Node
     private Control _mainMenu;
     private Control _settings;
 
+    // ---------- Methods to call on ready, which also loads saved parts of the game as the game is getting started ----------
+    public void InitializeVolume()
+    {
+
+    }
+
     // ----------- Initialize all child node references ----------
     public override void _Ready()
     {
@@ -110,7 +116,7 @@ public class Main : Node
 
     // ---------- VOLUME SLIDER SIGNAL METHODS ----------
 
-    // Untested code, be sure to later account for saving the game
+    // Be sure to later account for saving the game
     public void _on_VolumeSlider_value_changed(float value, String audioBusName)
     {
         int busIndex = AudioServer.GetBusIndex(audioBusName);
