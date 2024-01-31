@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ludum Dare 38 - 03.ogg-39dc68da5d2b130c7ee3425b9d745d49.oggstr"
+
+[deps]
+
+source_file="res://Music/Ludum Dare 38 - 03.ogg"
+dest_files=[ "res://.import/Ludum Dare 38 - 03.ogg-39dc68da5d2b130c7ee3425b9d745d49.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

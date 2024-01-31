@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Mouse Hover.wav-c28eaf254e7edde5837617344d289fcc.sample"
+path="res://.import/Mouse Hover.wav-0937e2ddc06c155f4fd00b66dcc84abb.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/UI Sound/Mouse Hover.wav"
-dest_files=[ "res://.import/Mouse Hover.wav-c28eaf254e7edde5837617344d289fcc.sample" ]
+source_file="res://SFX/UI Sound/Mouse Hover.wav"
+dest_files=[ "res://.import/Mouse Hover.wav-0937e2ddc06c155f4fd00b66dcc84abb.sample" ]
 
 [params]
 
