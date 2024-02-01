@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://MainMenu/Main.cs" type="Script" id=1]
 [ext_resource path="res://SFX/UI Sound/Mouse Hover.wav" type="AudioStream" id=2]
 [ext_resource path="res://Music/Ludum Dare 38 - 03.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Fonts/m5x7.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="Theme" id=1]
 
@@ -19,7 +20,7 @@ border_color = Color( 0.25098, 0.243137, 0.243137, 1 )
 Panel/styles/panel = SubResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.831373, 0.215686, 0.215686, 1 )
+bg_color = Color( 0.8, 0.270588, 0.270588, 1 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -35,7 +36,7 @@ border_width_bottom = 5
 border_color = Color( 0.784314, 0.14902, 0.14902, 1 )
 
 [sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.831373, 0.215686, 0.215686, 1 )
+bg_color = Color( 0.8, 0.384314, 0.384314, 1 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -54,7 +55,7 @@ Button/styles/pressed = SubResource( 6 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 32
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="Theme" id=10]
 default_font = SubResource( 9 )
@@ -124,6 +125,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -36.0
 margin_right = 127.422
+focus_mode = 0
 theme = SubResource( 8 )
 text = "BACK"
 
@@ -132,49 +134,49 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -90.0
-margin_top = -73.0
-margin_right = 90.0
-margin_bottom = 73.0
+margin_left = -133.5
+margin_top = -91.0
+margin_right = 133.5
+margin_bottom = 91.0
 theme = SubResource( 10 )
 
 [node name="MasterVolume" type="Label" parent="Settings/SettingsPanel/SettingsContainer"]
-margin_right = 180.0
-margin_bottom = 26.0
+margin_right = 267.0
+margin_bottom = 38.0
 text = "Master"
 
 [node name="MasterSlider" type="HSlider" parent="Settings/SettingsPanel/SettingsContainer" groups=["Master", "VolumeSlider"]]
-margin_top = 30.0
-margin_right = 180.0
-margin_bottom = 46.0
+margin_top = 42.0
+margin_right = 267.0
+margin_bottom = 58.0
 max_value = 1.0
 step = 0.05
 value = 0.5
 
 [node name="MusicVolume" type="Label" parent="Settings/SettingsPanel/SettingsContainer"]
-margin_top = 50.0
-margin_right = 180.0
-margin_bottom = 76.0
+margin_top = 62.0
+margin_right = 267.0
+margin_bottom = 100.0
 text = "Background Music"
 
 [node name="MusicSlider" type="HSlider" parent="Settings/SettingsPanel/SettingsContainer" groups=["BGM", "VolumeSlider"]]
-margin_top = 80.0
-margin_right = 180.0
-margin_bottom = 96.0
+margin_top = 104.0
+margin_right = 267.0
+margin_bottom = 120.0
 max_value = 1.0
 step = 0.05
 value = 0.5
 
 [node name="SoundEffectsVolume" type="Label" parent="Settings/SettingsPanel/SettingsContainer"]
-margin_top = 100.0
-margin_right = 180.0
-margin_bottom = 126.0
+margin_top = 124.0
+margin_right = 267.0
+margin_bottom = 162.0
 text = "Sound Effects"
 
 [node name="EffectsSlider" type="HSlider" parent="Settings/SettingsPanel/SettingsContainer" groups=["SFX", "VolumeSlider"]]
-margin_top = 130.0
-margin_right = 180.0
-margin_bottom = 146.0
+margin_top = 166.0
+margin_right = 267.0
+margin_bottom = 182.0
 max_value = 1.0
 step = 0.05
 value = 0.5
@@ -205,7 +207,6 @@ bus = "SFX"
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 3 )
-autoplay = true
 bus = "BGM"
 
 [node name="InGameMusic" type="AudioStreamPlayer" parent="Music"]

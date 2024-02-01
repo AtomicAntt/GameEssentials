@@ -23,7 +23,7 @@ public class Saves : Node
         {
             {"MasterVolume", masterVolumeSlider.Value},
             {"BackgroundMusicVolume", bgmVolumeSlider.Value},
-            {"SoundEffectVolume", sfxVolumeSlider}
+            {"SoundEffectVolume", sfxVolumeSlider.Value}
         };
 
         saveGame.StoreLine(JSON.Print(saveData));
@@ -42,10 +42,18 @@ public class Saves : Node
 
         saveGame.Open(_saveFilePath, File.ModeFlags.Read);
 
+        var nodeData = new Godot.Collections.Dictionary<string, object>((Godot.Collections.Dictionary)JSON.Parse(saveGame.GetLine()).Result);
+
         // Manually load data here :(
+    
+        HSlider masterVolumeSlider = GetTree().GetNodesInGroup("Master")[0] as HSlider;
+        HSlider bgmVolumeSlider = GetTree().GetNodesInGroup("BGM")[0] as HSlider;
+        HSlider sfxVolumeSlider = GetTree().GetNodesInGroup("SFX")[0] as HSlider;
 
-        
+        masterVolumeSlider.Value = (float)nodeData["MasterVolume"];
+        bgmVolumeSlider.Value = (float)nodeData["BackgroundMusicVolume"];
+        sfxVolumeSlider.Value = (float)nodeData["SoundEffectVolume"];
 
-
+        saveGame.Close();
     }
 }

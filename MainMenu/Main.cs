@@ -26,13 +26,21 @@ public class Main : Node
     private Control _mainMenu;
     private Control _settings;
 
+    // ---------- Initialized Autoloads ----------
+
+    private Saves _saves;
+
+
+
     // ---------- Methods to call on ready, which also loads saved parts of the game as the game is getting started ----------
+
     public void InitializeVolume()
     {
-
+        
     }
 
     // ----------- Initialize all child node references ----------
+
     public override void _Ready()
     {
         mouseHoverSound = GetNode<AudioStreamPlayer>("SFX/MouseHoverSound");
@@ -47,6 +55,15 @@ public class Main : Node
 
         _mainMenu = GetNode<Control>("MainMenu");
         _settings = GetNode<Control>("Settings");
+
+        _saves = GetNode<Saves>("/root/Saves");
+
+        // Load values like settings that were set.
+        _saves.LoadGame();
+
+        // Play music after loading to allow it to play at the volume setting the user saved.
+
+        mainMenuMusic.Play();
     }
 
     // ---------- Methods to handle loading and unloading levels ----------
@@ -121,5 +138,8 @@ public class Main : Node
     {
         int busIndex = AudioServer.GetBusIndex(audioBusName);
         AudioServer.SetBusVolumeDb(busIndex, GD.Linear2Db(value));
+
+        // Save it so next time you open the game you get the same volume
+        _saves.SaveGame();
     }
 }
