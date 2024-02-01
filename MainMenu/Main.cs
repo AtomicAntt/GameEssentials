@@ -100,25 +100,6 @@ public class Main : Control
 
 	// ---------- Methods to handle tween animations ----------
 
-    public void SetVisibleUI(Control ui, bool visibleUI)
-    {
-        
-    }
-
-	public void ShowUI(Control ui, bool showUI)
-	{
-		SceneTreeTween tween = GetTree().CreateTween();
-
-		if (showUI)
-		{
-			tween.TweenProperty(ui, "rect_scale", new Vector2(1.0f, 1.0f), 0.1f);
-		}
-		else
-		{
-			tween.TweenProperty(ui, "rect_scale", new Vector2(0.0f, 0.0f), 0.1f);
-		}
-	}
-
     // ---------- BUTTON SIGNAL METHODS ----------
 
     // Signal used on all menu buttons to indicate that the mouse is hovering over a button by playing a sound.
@@ -143,7 +124,6 @@ public class Main : Control
     public void _on_SettingsButton_pressed()
     {
         _settings.Visible = true;
-		ShowUI(_settingsPanel, true);
         
         clickSettingsSound.Play();
     }

@@ -121,7 +121,6 @@ margin_right = 445.0
 margin_bottom = 306.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 445, 306 )
 mouse_filter = 2
 theme = SubResource( 3 )
