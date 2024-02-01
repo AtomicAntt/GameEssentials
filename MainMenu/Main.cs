@@ -100,17 +100,22 @@ public class Main : Control
 
 	// ---------- Methods to handle tween animations ----------
 
+    public void SetVisibleUI(Control ui, bool visibleUI)
+    {
+        
+    }
+
 	public void ShowUI(Control ui, bool showUI)
 	{
 		SceneTreeTween tween = GetTree().CreateTween();
 
 		if (showUI)
 		{
-			tween.TweenProperty(ui, "rect_scale", new Vector2(1.0f, 1.0f), 0.2f);
+			tween.TweenProperty(ui, "rect_scale", new Vector2(1.0f, 1.0f), 0.1f);
 		}
 		else
 		{
-			tween.TweenProperty(ui, "rect_scale", new Vector2(0.0f, 0.0f), 0.2f);
+			tween.TweenProperty(ui, "rect_scale", new Vector2(0.0f, 0.0f), 0.1f);
 		}
 	}
 
@@ -163,10 +168,10 @@ public class Main : Control
 
     // ---------- INPUT SIGNAL METHOD ----------
 
-    // If you click and settings is up, if it was outside of the settings window, it will close it
+    // If you click and settings is full size, if it was outside of the settings window, it will close it
     public override void _Input(InputEvent @event)
     {
-        if (@event is InputEventMouseButton && _settings.Visible)
+        if (@event is InputEventMouseButton && _settings.RectScale.x == 1)
         {
             Vector2 mousePos = GetGlobalMousePosition();
 
