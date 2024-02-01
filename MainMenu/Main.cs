@@ -144,12 +144,12 @@ public class Main : Control
         _saves.SaveGame();
     }
 
-    // ---------- GUI INPUT SIGNAL METHODS ----------
+    // ---------- INPUT SIGNAL METHOD ----------
 
-    // This is called when you hit outside of the settings panel, which will be the settings background, and if you do it, you exit settings.
+    // If you click and settings is up, if it was outside of the settings window, it will close it
     public override void _Input(InputEvent @event)
     {
-        if (@event is InputEventMouseButton)
+        if (@event is InputEventMouseButton && _settings.Visible)
         {
             Vector2 mousePos = GetGlobalMousePosition();
 
