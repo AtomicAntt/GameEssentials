@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Main : Node
+public class Main : Control
 {
     // ---------- Initialized audio node variables ----------
 
@@ -26,11 +26,12 @@ public class Main : Node
     private Control _mainMenu;
     private Control _settings;
 
+    private Panel _settingsPanel;
+    private ColorRect _settingsBackground;
+
     // ---------- Initialized Autoloads ----------
 
     private Saves _saves;
-
-
 
     // ---------- Methods to call on ready, which also loads saved parts of the game as the game is getting started ----------
 
@@ -43,6 +44,7 @@ public class Main : Node
 
     public override void _Ready()
     {
+        // Initialize all child node references
         mouseHoverSound = GetNode<AudioStreamPlayer>("SFX/MouseHoverSound");
         clickPlaySound = GetNode<AudioStreamPlayer>("SFX/ClickPlaySound");
         quitSound = GetNode<AudioStreamPlayer>("SFX/QuitSound");
@@ -56,13 +58,16 @@ public class Main : Node
         _mainMenu = GetNode<Control>("MainMenu");
         _settings = GetNode<Control>("Settings");
 
+        _settingsPanel = GetNode<Panel>("Settings/SettingsPanel");
+        _settingsBackground = GetNode<ColorRect>("Settings/SettingsBackground");
+
+        // Initialize needed autoloads
         _saves = GetNode<Saves>("/root/Saves");
 
         // Load values like settings that were set.
         _saves.LoadGame();
 
         // Play music after loading to allow it to play at the volume setting the user saved.
-
         mainMenuMusic.Play();
     }
 
@@ -103,8 +108,7 @@ public class Main : Node
 
     public void _on_StartButton_pressed()
     {
-        // Make sure you have 'Levels' folder with a valid Node2D Level1.tscn file in it first.
-        // LoadLevel("Level1");
+        LoadLevel("Level1");
         clickPlaySound.Play();
     }
 
@@ -117,7 +121,6 @@ public class Main : Node
 
     public void _on_SettingsButton_pressed()
     {
-        _mainMenu.Visible = false;
         _settings.Visible = true;
         
         clickSettingsSound.Play();
@@ -125,7 +128,6 @@ public class Main : Node
 
     public void _on_SettingsBackButton_pressed()
     {
-        _mainMenu.Visible = true;
         _settings.Visible = false;
 
         quitSound.Play();
@@ -133,7 +135,6 @@ public class Main : Node
 
     // ---------- VOLUME SLIDER SIGNAL METHODS ----------
 
-    // Be sure to later account for saving the game
     public void _on_VolumeSlider_value_changed(float value, String audioBusName)
     {
         int busIndex = AudioServer.GetBusIndex(audioBusName);
@@ -141,5 +142,25 @@ public class Main : Node
 
         // Save it so next time you open the game you get the same volume
         _saves.SaveGame();
+    }
+
+    // ---------- GUI INPUT SIGNAL METHODS ----------
+
+    // This is called when you hit outside of the settings panel, which will be the settings background, and if you do it, you exit settings.
+    public override void _Input(InputEvent @event)
+    {
+        if (@event is InputEventMouseButton)
+        {
+            Vector2 mousePos = GetGlobalMousePosition();
+
+            Rect2 uiBoundingBox = _settingsPanel.GetRect();
+
+            if (!uiBoundingBox.HasPoint(mousePos))
+            {
+                _settings.Visible = false;
+
+                quitSound.Play();
+            }
+        }
     }
 }
