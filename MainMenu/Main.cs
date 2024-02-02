@@ -148,10 +148,10 @@ public class Main : Control
 
     // ---------- INPUT SIGNAL METHOD ----------
 
-    // If you click and settings is full size, if it was outside of the settings window, it will close it
+    // If you click and settings is up, if it was outside of the settings window, it will close it
     public override void _Input(InputEvent @event)
     {
-        if (@event is InputEventMouseButton && _settings.RectScale.x == 1)
+        if (@event is InputEventMouseButton && _settings.Visible)
         {
             Vector2 mousePos = GetGlobalMousePosition();
 
