@@ -1,12 +1,80 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://MainMenu/Main.cs" type="Script" id=1]
 [ext_resource path="res://SFX/UI Sound/Mouse Hover.wav" type="AudioStream" id=2]
 [ext_resource path="res://Music/Ludum Dare 38 - 03.ogg" type="AudioStream" id=3]
-[ext_resource path="res://UI Assets/FlatUI/kenneyUI.tres" type="Theme" id=4]
-[ext_resource path="res://UI Assets/FlatUI/kenneyUI-red.tres" type="Theme" id=5]
+[ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="Theme" id=1]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.705882, 0.823529, 0.133333, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.87451, 0.172549, 0.101961, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxLine" id=8]
+color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxLine" id=9]
+color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxLine" id=10]
+color = Color( 0.392157, 0.388235, 0.388235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 0.470588 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+Button/styles/hover = SubResource( 5 )
+Button/styles/normal = SubResource( 6 )
+Button/styles/pressed = SubResource( 7 )
+HSlider/icons/grabber = null
+HSlider/styles/grabber_area = SubResource( 8 )
+HSlider/styles/grabber_area_highlight = SubResource( 9 )
+HSlider/styles/slider = SubResource( 10 )
+Panel/styles/panel = SubResource( 4 )
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -57,6 +125,7 @@ text = "Quit"
 [node name="Settings" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 3 )
 
 [node name="SettingsPanel" type="Panel" parent="Settings"]
 anchor_left = 0.5
@@ -71,7 +140,6 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 445, 306 )
 mouse_filter = 2
-theme = ExtResource( 4 )
 
 [node name="SettingsBackButton" type="Button" parent="Settings/SettingsPanel"]
 anchor_top = 1.0
@@ -80,7 +148,6 @@ margin_top = -42.0
 margin_right = 73.3241
 margin_bottom = 0.251007
 focus_mode = 0
-theme = ExtResource( 5 )
 text = "BACK"
 
 [node name="SettingsContainer" type="VBoxContainer" parent="Settings/SettingsPanel"]
@@ -95,65 +162,69 @@ margin_bottom = 158.0
 mouse_filter = 0
 custom_constants/separation = 15
 
-[node name="MasterVolume" type="Label" parent="Settings/SettingsPanel/SettingsContainer"]
+[node name="MasterVolume" type="Label" parent="Settings/SettingsPanel/SettingsContainer" groups=["Master Label"]]
 margin_right = 361.0
 margin_bottom = 19.0
-text = "Master"
+text = "Master: 100%"
+align = 1
 
 [node name="MasterSlider" type="HSlider" parent="Settings/SettingsPanel/SettingsContainer" groups=["Master", "VolumeSlider"]]
 margin_top = 34.0
 margin_right = 361.0
-margin_bottom = 76.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
 max_value = 1.0
-step = 0.05
+step = 0.01
 value = 0.5
 
-[node name="MusicVolume" type="Label" parent="Settings/SettingsPanel/SettingsContainer"]
-margin_top = 91.0
+[node name="MusicVolume" type="Label" parent="Settings/SettingsPanel/SettingsContainer" groups=["BGM Label"]]
+margin_top = 65.0
 margin_right = 361.0
-margin_bottom = 110.0
-text = "Background Music"
+margin_bottom = 84.0
+text = "Background Music: 100%"
+align = 1
 
 [node name="MusicSlider" type="HSlider" parent="Settings/SettingsPanel/SettingsContainer" groups=["BGM", "VolumeSlider"]]
-margin_top = 125.0
+margin_top = 99.0
 margin_right = 361.0
-margin_bottom = 167.0
+margin_bottom = 115.0
 max_value = 1.0
-step = 0.05
+step = 0.01
 value = 0.5
 
-[node name="SoundEffectsVolume" type="Label" parent="Settings/SettingsPanel/SettingsContainer"]
-margin_top = 182.0
+[node name="SoundEffectsVolume" type="Label" parent="Settings/SettingsPanel/SettingsContainer" groups=["SFX Label"]]
+margin_top = 130.0
 margin_right = 361.0
-margin_bottom = 201.0
-text = "Sound Effects"
+margin_bottom = 149.0
+text = "Sound Effects: 100%"
+align = 1
 
 [node name="EffectsSlider" type="HSlider" parent="Settings/SettingsPanel/SettingsContainer" groups=["SFX", "VolumeSlider"]]
-margin_top = 216.0
+margin_top = 164.0
 margin_right = 361.0
-margin_bottom = 258.0
+margin_bottom = 180.0
 max_value = 1.0
-step = 0.05
+step = 0.01
 value = 0.5
 
 [node name="ResolutionSelectorContainer" type="HBoxContainer" parent="Settings/SettingsPanel/SettingsContainer"]
-margin_top = 273.0
+margin_top = 195.0
 margin_right = 361.0
-margin_bottom = 316.0
-alignment = 1
+margin_bottom = 218.0
 
 [node name="Label" type="Label" parent="Settings/SettingsPanel/SettingsContainer/ResolutionSelectorContainer"]
-margin_left = 71.0
-margin_top = 12.0
-margin_right = 154.0
-margin_bottom = 31.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 21.0
 text = "Resolution: "
 
 [node name="ResolutionSelector" type="OptionButton" parent="Settings/SettingsPanel/SettingsContainer/ResolutionSelectorContainer"]
-margin_left = 158.0
-margin_right = 289.324
-margin_bottom = 43.251
+margin_left = 87.0
+margin_right = 361.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
 text = "1920x1080"
+align = 1
 items = [ "1920x1080", null, false, 0, null, "1280x720", null, false, 1, null, "640x360", null, false, 2, null ]
 selected = 0
 
@@ -198,6 +269,6 @@ bus = "BGM"
 [connection signal="pressed" from="MainMenu/MenuButtons/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="mouse_entered" from="Settings/SettingsPanel/SettingsBackButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Settings/SettingsPanel/SettingsBackButton" to="." method="_on_SettingsBackButton_pressed"]
-[connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/MasterSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "Master" ]]
-[connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/MusicSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "BGM" ]]
-[connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/EffectsSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "SFX" ]]
+[connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/MasterSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "Master", "Master" ]]
+[connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/MusicSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "BGM", "Background Music" ]]
+[connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/EffectsSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "SFX", "Sound Effects" ]]

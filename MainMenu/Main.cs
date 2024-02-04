@@ -137,10 +137,17 @@ public class Main : Control
 
     // ---------- VOLUME SLIDER SIGNAL METHODS ----------
 
-    public void _on_VolumeSlider_value_changed(float value, String audioBusName)
+    public void _on_VolumeSlider_value_changed(float value, String audioBusName, String labelName)
     {
         int busIndex = AudioServer.GetBusIndex(audioBusName);
         AudioServer.SetBusVolumeDb(busIndex, GD.Linear2Db(value));
+
+        // So.. the labels will be in a group that is the same name as the audio bus name assigned for the volume slider with label at the end
+        // Also, the reason why the HSliders also have group names that are the same as the audio bus name is so the save autoload can figure out where it is.
+        foreach (Label label in GetTree().GetNodesInGroup(audioBusName + " Label"))
+        {
+            label.Text = labelName + ": " + (value * 100) + "%";
+        }
 
         // Save it so next time you open the game you get the same volume
         _saves.SaveGame();
