@@ -149,7 +149,7 @@ margin_right = 83.0
 margin_bottom = 21.0
 text = "Resolution: "
 
-[node name="ResolutionSelector" type="OptionButton" parent="Settings/SettingsPanel/SettingsContainer/ResolutionSelectorContainer"]
+[node name="ResolutionSelector" type="OptionButton" parent="Settings/SettingsPanel/SettingsContainer/ResolutionSelectorContainer" groups=["ResolutionSelector"]]
 margin_left = 87.0
 margin_right = 361.0
 margin_bottom = 23.0
@@ -203,3 +203,4 @@ bus = "BGM"
 [connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/MasterSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "Master", "Master" ]]
 [connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/MusicSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "BGM", "Background Music" ]]
 [connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/EffectsSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "SFX", "Sound Effects" ]]
+[connection signal="item_selected" from="Settings/SettingsPanel/SettingsContainer/ResolutionSelectorContainer/ResolutionSelector" to="." method="_on_ResolutionSelector_item_selected"]

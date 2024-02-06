@@ -153,6 +153,22 @@ public class Main : Control
         _saves.SaveGame();
     }
 
+    // ---------- RESOLUTION OPTION SIGNAL METHODS ----------
+
+    public void _on_ResolutionSelector_item_selected(int index)
+    {
+        OS.WindowFullscreen = false;
+        OptionButton resolutionSelector = GetTree().GetNodesInGroup("ResolutionSelector")[0] as OptionButton;
+
+        string[] values = resolutionSelector.GetItemText(index).Split("x");
+
+
+        OS.WindowSize = new Vector2(float.Parse(values[0]), float.Parse(values[1]));
+        GD.Print(OS.WindowSize);
+        OS.WindowFullscreen = true;
+
+    }
+
     // ---------- INPUT SIGNAL METHOD ----------
 
     // If you click and settings is up, if it was outside of the settings window, it will close it
