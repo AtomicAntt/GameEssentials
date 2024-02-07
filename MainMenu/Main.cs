@@ -153,6 +153,13 @@ public class Main : Control
         _saves.SaveGame();
     }
 
+    // ---------- FULLSCREEN BUTTON SIGNAL METHOD ----------
+
+    public void _on_FullscreenButton_toggled(bool buttonPressed)
+    {
+        OS.WindowFullscreen = buttonPressed;
+    }
+
     // ---------- INPUT SIGNAL METHOD ----------
 
     // If you click and settings is up, if it was outside of the settings window, it will close it

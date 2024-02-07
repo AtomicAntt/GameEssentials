@@ -138,6 +138,25 @@ max_value = 1.0
 step = 0.01
 value = 0.5
 
+[node name="FullscreenSelectorContainer" type="HBoxContainer" parent="Settings/SettingsPanel/SettingsContainer"]
+margin_top = 195.0
+margin_right = 361.0
+margin_bottom = 227.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Settings/SettingsPanel/SettingsContainer/FullscreenSelectorContainer"]
+margin_left = 107.0
+margin_top = 6.0
+margin_right = 185.0
+margin_bottom = 25.0
+text = "Full Screen"
+
+[node name="FullscreenButton" type="CheckButton" parent="Settings/SettingsPanel/SettingsContainer/FullscreenSelectorContainer"]
+margin_left = 189.0
+margin_right = 253.0
+margin_bottom = 32.0
+pressed = true
+
 [node name="SettingsBackground" type="ColorRect" parent="Settings"]
 show_behind_parent = true
 anchor_right = 1.0
@@ -182,3 +201,4 @@ bus = "BGM"
 [connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/MasterSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "Master", "Master" ]]
 [connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/MusicSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "BGM", "Background Music" ]]
 [connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/EffectsSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "SFX", "Sound Effects" ]]
+[connection signal="toggled" from="Settings/SettingsPanel/SettingsContainer/FullscreenSelectorContainer/FullscreenButton" to="." method="_on_FullscreenButton_toggled"]
