@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=2]
+[gd_resource type="Theme" load_steps=15 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 
@@ -49,11 +49,16 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 [sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="StyleBoxLine" id=8]
+[sub_resource type="StyleBoxLine" id=15]
 color = Color( 1, 1, 1, 1 )
+grow_begin = 33.0
+grow_end = 32.0
 
-[sub_resource type="StyleBoxLine" id=9]
-color = Color( 1, 1, 1, 1 )
+[sub_resource type="StyleBoxLine" id=8]
+color = Color( 0, 0.670588, 1, 1 )
+
+[sub_resource type="StyleBoxLine" id=16]
+color = Color( 0, 0.670588, 1, 1 )
 
 [sub_resource type="StyleBoxLine" id=10]
 color = Color( 0.392157, 0.388235, 0.388235, 1 )
@@ -81,8 +86,9 @@ CheckButton/styles/focus = SubResource( 14 )
 CheckButton/styles/hover = SubResource( 11 )
 CheckButton/styles/normal = SubResource( 12 )
 CheckButton/styles/pressed = SubResource( 13 )
+HSeparator/styles/separator = SubResource( 15 )
 HSlider/icons/grabber = null
 HSlider/styles/grabber_area = SubResource( 8 )
-HSlider/styles/grabber_area_highlight = SubResource( 9 )
+HSlider/styles/grabber_area_highlight = SubResource( 16 )
 HSlider/styles/slider = SubResource( 10 )
 Panel/styles/panel = SubResource( 4 )
