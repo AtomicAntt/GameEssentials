@@ -138,27 +138,6 @@ max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="ResolutionSelectorContainer" type="HBoxContainer" parent="Settings/SettingsPanel/SettingsContainer"]
-margin_top = 195.0
-margin_right = 361.0
-margin_bottom = 218.0
-
-[node name="Label" type="Label" parent="Settings/SettingsPanel/SettingsContainer/ResolutionSelectorContainer"]
-margin_top = 2.0
-margin_right = 83.0
-margin_bottom = 21.0
-text = "Resolution: "
-
-[node name="ResolutionSelector" type="OptionButton" parent="Settings/SettingsPanel/SettingsContainer/ResolutionSelectorContainer" groups=["ResolutionSelector"]]
-margin_left = 87.0
-margin_right = 361.0
-margin_bottom = 23.0
-size_flags_horizontal = 3
-text = "1920x1080"
-align = 1
-items = [ "1920x1080", null, false, 0, null, "1280x720", null, false, 1, null, "640x360", null, false, 2, null ]
-selected = 0
-
 [node name="SettingsBackground" type="ColorRect" parent="Settings"]
 show_behind_parent = true
 anchor_right = 1.0
@@ -203,4 +182,3 @@ bus = "BGM"
 [connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/MasterSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "Master", "Master" ]]
 [connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/MusicSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "BGM", "Background Music" ]]
 [connection signal="value_changed" from="Settings/SettingsPanel/SettingsContainer/EffectsSlider" to="." method="_on_VolumeSlider_value_changed" binds= [ "SFX", "Sound Effects" ]]
-[connection signal="item_selected" from="Settings/SettingsPanel/SettingsContainer/ResolutionSelectorContainer/ResolutionSelector" to="." method="_on_ResolutionSelector_item_selected"]
