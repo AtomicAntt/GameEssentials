@@ -12,6 +12,6 @@ Next, run the following command to clone the repository:
 git clone https://github.com/AtomicAntt/GameEssentials
 ```
 
-Then, follow the instructions in the Godot docs [here](https://docs.godotengine.org/en/3.5/tutorials/scripting/c_sharp/c_sharp_basics.html) to get the project set up.
+Then, follow the instructions in the Godot docs [here](https://docs.godotengine.org/en/3.5/tutorials/scripting/c_sharp/c_sharp_basics.html) to get the project set up by installing the .NET SDK and configuring editor settings.
 
 Finally, open up the Godot Engine project manager, click the Import button, and choose the 'project.godot' file from the files downloaded.
